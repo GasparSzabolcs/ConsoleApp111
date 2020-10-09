@@ -22,23 +22,37 @@ namespace CA201007
 
         static int[] tomb = new int[100];
 
+        static char[] inf = "INFORMATIKA".ToCharArray();
+
         static void Main()
 
         {
 
-            Feltolt();
+            //dolog d = (dolog)rnd.Next(3);
+            //Console.WriteLine(d);
 
-            Kiir();
+            //Feltolt();
 
-            for (int i = 0; i < 1000; i++)
+            //Kiir();
 
-            {
+            //for (int i = 0; i < 1000; i++)
 
-                RandomSzin();
+            //{
 
-                RandomHelyreIr();
+            //    RandomSzin();
 
-            }
+            //    RandomHelyreIr();
+
+            //}
+
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Console.Write(RandomChar());
+            //}
+            Console.WriteLine(RandomJelszo());
+
+            kever();
+            Console.WriteLine(new string(inf));
 
             Console.ReadKey();
 
@@ -88,32 +102,64 @@ namespace CA201007
 
         }
 
+        //enum dolog
+        //{
+        //    szánkó,
+        //    mikulás,
+        //    szarvas,
+        //}
+
         static void RandomSzin()
 
         {
 
-            ConsoleColor[] szinek =
 
-            {
 
-                ConsoleColor.Green,
+            //ConsoleColor[] szinek =
 
-                ConsoleColor.Blue,
+            //{
 
-                ConsoleColor.Yellow,
+            //    ConsoleColor.Green,
 
-                ConsoleColor.Red,
+            //    ConsoleColor.Blue,
 
-                ConsoleColor.Magenta,
+            //    ConsoleColor.Yellow,
 
-            };
+            //    ConsoleColor.Red,
 
-            Console.ForegroundColor = szinek[rnd.Next(szinek.Length)];
+            //    ConsoleColor.Magenta,
+
+            //};
+
+            Console.ForegroundColor = (ConsoleColor)rnd.Next(1,16);
 
         }
 
+        static char RandomChar() => (char) rnd.Next(65, 91);
+
+        static string RandomJelszo()
+        {
+            string pw = "";
+            for (int i = 0; i < 6; i++)
+            {
+                pw += RandomChar();
+            }
+            return pw;
+        }
 
 
+        static void kever()
+        {
+            for (int i = 0; i < inf.Length / 2; i++)
+            {
+                int x = rnd.Next(inf.Length);
+                int y = rnd.Next(inf.Length);
+
+                char s = inf[x];
+                inf[x] = inf[y];
+                inf[y] = s;
+            }
+        }
     }
 
 }
